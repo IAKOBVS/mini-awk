@@ -4,18 +4,23 @@
 
 #define MAX_LENGTH 1024
 
-inline void whichStr(int nStr, char delim)
+void whichStr(int nStr, char delim)
 {
 	char inStr[MAX_LENGTH];
 	fgets(inStr, MAX_LENGTH, stdin);
 
 	int i = 0;
-	if (nStr == 1) {
-		while (inStr[i] == delim) ++i;
-		for (; inStr[i] != '\0' && inStr[i] != delim; ++i) {
-			printf("%c", inStr[i]);
+
+	switch (nStr) {
+	case 1:
+		if (nStr == 1) {
+			while (inStr[i] == delim) ++i;
+			for (; inStr[i] != '\0' && inStr[i] != delim; ++i) {
+				printf("%c", inStr[i]);
+			}
 		}
-	} else {
+		break;
+	default:
 		for (int nDelim = 1; inStr[i] != '\0' && nDelim<nStr; ++nDelim) {
 			while (inStr[i] == delim) ++i;
 			while (inStr[i] != delim) ++i;
