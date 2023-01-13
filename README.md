@@ -7,7 +7,9 @@ gcc mini-awk.c -o /path/to/bins/mini-awk
 ## Usage:
 ```
 mini-awk <nth string>
+```
 e.g.,
+```
 echo " hello world " | mini-awk 2
 world
 ```
