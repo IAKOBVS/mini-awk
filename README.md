@@ -1,5 +1,5 @@
 # mini-awk
-A useless awk which prints the nth space-seperated string from stdin
+A useless awk that prints the nth space-seperated string from stdin
 ## Installation
 ```
 gcc mini-awk.c -o /path/to/bins/mini-awk
