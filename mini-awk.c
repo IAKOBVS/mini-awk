@@ -4,7 +4,7 @@
 
 #define MAX_LENGTH 1024
 
-void whichStr(int nStr, char delim)
+inline void whichStr(int nStr, char delim)
 {
 	char inStr[MAX_LENGTH];
 	fgets(inStr, MAX_LENGTH, stdin);
@@ -29,18 +29,6 @@ void whichStr(int nStr, char delim)
 
 int main(int argc, char *argv[])
 {
-	for (int currArgv = 1; currArgv<argc; ++currArgv) {
-
-		if (argv[currArgv][0] == '-' && argv[currArgv][1] == 'F') {
-
-			if (argv[currArgv][0]) {
-				whichStr(strtol(argv[currArgv + 1], NULL, 10), argv[currArgv][2]);
-				return 0;
-			}
-		} else {
-			whichStr(strtol(argv[currArgv], NULL, 10), ' ');
-			return 0;
-		}
-	}
+	whichStr(strtol(argv[1], NULL, 10), ' ');
 	return 0;
 }
