@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_LENGTH 1024
+#define MAX_LENGTH 512
 
 void whichStr(int nStr, char delim)
 {
@@ -9,25 +9,16 @@ void whichStr(int nStr, char delim)
 	fgets(inStr, MAX_LENGTH, stdin);
 
 	int i = 0;
+	while (inStr[i] == delim && inStr[i] != '\0') ++i;
 
-	switch (nStr) {
-	case 1:
-		if (nStr == 1) {
-			while (inStr[i] == delim) ++i;
-			for (; inStr[i] != '\0' && inStr[i] != delim; ++i) {
-				printf("%c", inStr[i]);
-			}
+	if (nStr > 1) {
+		for (int nDelim = 1; nDelim<nStr && inStr[i] != '\0'; ++nDelim) {
+			while (inStr[i] != delim && inStr[i] != '\0') ++i;
+			while (inStr[i] == delim && inStr[i] != '\0') ++i;
 		}
-		break;
-	default:
-		for (int nDelim = 1; inStr[i] != '\0' && nDelim<nStr; ++nDelim) {
-			while (inStr[i] == delim) ++i;
-			while (inStr[i] != delim) ++i;
-			while (inStr[i] == delim) ++i;
-		}
-		for (; inStr[i] != '\0' && inStr[i] != delim; ++i) {
-			printf("%c", inStr[i]);
-		}
+	}
+	for (; inStr[i] != delim && inStr[i] != '\0' ; ++i) {
+		printf("%c", inStr[i]);
 	}
 }
 
