@@ -9,17 +9,16 @@ void whichStr(int nStr, char delim)
 	fgets(inStr, MAX_LENGTH, stdin);
 
 	int i = 0;
-	while (inStr[i] == delim && inStr[i] != '\0') ++i;
+	while (inStr[i] == delim && inStr[i]) ++i;
 
-	if (nStr > 1) {
-		for (int nDelim = 1; nDelim<nStr && inStr[i] != '\0'; ++nDelim) {
-			while (inStr[i] != delim && inStr[i] != '\0') ++i;
-			while (inStr[i] == delim && inStr[i] != '\0') ++i;
+	if (nStr)
+		for (int nDelim = 1; nDelim<nStr && inStr[i]; ++nDelim) {
+			while (inStr[i] != delim && inStr[i]) ++i;
+			while (inStr[i] == delim && inStr[i]) ++i;
 		}
-	}
-	for (; inStr[i] != delim && inStr[i] != '\0' ; ++i) {
+
+	for (; inStr[i] != delim && inStr[i] != '\0' ; ++i)
 		printf("%c", inStr[i]);
-	}
 }
 
 int main(int argc, char *argv[])
