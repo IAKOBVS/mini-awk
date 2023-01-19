@@ -9,7 +9,8 @@ void whichStrSpc(int nStr, char delim)
 	/* copies stdin to var */
 	fgets(inStr, MAX_LENGTH, stdin);
 	int i = 0;
-	while (inStr[i] == delim && inStr[i]) ++i;
+	while (inStr[i] == delim && inStr[i])
+		++i;
 	if (nStr)
 		for (int nDelim = 1; nDelim<nStr && inStr[i]; ++nDelim) {
 			while (inStr[i] != delim && inStr[i])
@@ -17,8 +18,8 @@ void whichStrSpc(int nStr, char delim)
 			while (inStr[i] == delim && inStr[i])
 				++i;
 		}
-	for (; inStr[i] != delim && inStr[i]; ++i)
-		printf("%c", inStr[i]);
+	while (inStr[i] != delim && inStr[i])
+		printf("%c", inStr[i++]);
 }
 
 int main(int argc, char *argv[])
